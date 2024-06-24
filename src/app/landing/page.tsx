@@ -1,5 +1,6 @@
 import FadeIn from "../animations/FadeIn";
 import Footer from "../components/Footer";
+import { Button } from "../ui/Button/Button";
 
 const Landing = () => {
   return (
@@ -9,6 +10,7 @@ const Landing = () => {
           <div className="mx-auto mb-16 max-w-7xl px-6 lg:px-8">
             Landing Page
           </div>
+          <Button>Enter</Button>
         </main>
         <Footer />
       </div>
