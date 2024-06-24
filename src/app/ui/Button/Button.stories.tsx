@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'ui/Button',
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },
@@ -23,7 +24,7 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: 'Button',
     variant: 'default',
