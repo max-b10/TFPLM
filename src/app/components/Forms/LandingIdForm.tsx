@@ -25,7 +25,7 @@ const LandingIdForm = ({ onSubmit }: IdFormProps) => {
   };
   return (
     <Card className="w-full max-w-sm">
-      <CardHeader className='mb-5'>
+      <CardHeader className='mb-5 p-6'>
         <CardTitle data-cy="landing-title" className="text-2xl">
           The FPL Manager
         </CardTitle>

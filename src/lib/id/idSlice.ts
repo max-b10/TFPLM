@@ -5,7 +5,7 @@ interface IdState {
 }
 
 const initialState: IdState = {
-  value: '',
+  value: '0',
 };
 
 export const idSlice = createSlice({

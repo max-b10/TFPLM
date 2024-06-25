@@ -3,11 +3,17 @@ import FadeIn from "../animations/FadeIn";
 import Footer from "../components/Footer";
 import LandingIdForm from "../components/Forms/LandingIdForm";
 import { IFormData } from "../types/FormData";
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setId } from "@/lib/id/idSlice";
+import { useRouter } from "next/navigation";
+
 const Landing = () => {
+
+  const dispatch = useDispatch();
+  const router = useRouter()
   const handleSubmit = (data:IFormData) => {
-    console.log(data);
-   
+    dispatch(setId(data.id));
+    router.push('/dashboard');
   };
 
   return (
