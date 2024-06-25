@@ -4,7 +4,10 @@ import { Card
 } from './Card';
 
 const meta: Meta<typeof Card> = {
+  title: 'ui/organisms/Card',
     component: Card,
+  tags: ['autodocs'],
+
   };
 
 export default meta;
