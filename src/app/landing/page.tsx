@@ -1,6 +1,6 @@
 import FadeIn from "../animations/FadeIn";
 import Footer from "../components/Footer";
-import { Button } from "../ui/Button/Button";
+import { Button } from "../ui/molecules/Button/Button";
 
 const Landing = () => {
   return (
