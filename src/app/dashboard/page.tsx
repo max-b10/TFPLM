@@ -1,21 +1,21 @@
-'use client'
-import FadeIn from "../animations/FadeIn";
-import MainContainer from "../components/Layout/MainContainer";
-import { useCheckId } from "../hooks/useCheckId";
-import { IManagerData } from "../types/manager/managerData";
+'use client';
+import FadeIn from '../animations/FadeIn';
+import MainContainer from '../components/Layout/MainContainer';
+import Navbar from '../components/Layout/Navbar';
+import { useCheckId } from '../hooks/useCheckId';
 
 const Dashboard = () => {
-  
-    // const response = await fetch('https://fantasy.premierleague.com/api/entry/115660');
-    // const data: IManagerData = await response.json(); 
-    // console.log(data);
-    useCheckId();
-    return (
+  useCheckId();
+  return (
+    <>
+      <Navbar />
+
       <FadeIn>
-            <MainContainer>
-              <h1>Dashboard</h1>
-            </MainContainer>
+        <MainContainer>
+          <h1>Dashboard</h1>
+        </MainContainer>
       </FadeIn>
-    );
-  };
-  export default Dashboard;
+    </>
+  );
+};
+export default Dashboard;

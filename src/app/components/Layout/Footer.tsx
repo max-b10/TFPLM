@@ -1,14 +1,11 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="mt-4 flex w-full items-center justify-between border-t p-4 sm:p-6">
       <div className="text-sm">
-        <span >Max Bungay |</span>
-        <span className="text-muted-foreground">
-          {" "}
-          Frontend Developer
-        </span>
+        <span>Max Bungay |</span>
+        <span className="text-muted-foreground"> Frontend Developer</span>
       </div>
       <div className="flex space-x-6">
         <a
