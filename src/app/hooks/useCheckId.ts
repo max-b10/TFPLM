@@ -8,7 +8,6 @@ export const useCheckId = () => {
 
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
-  console.log('fplidstring:' + fplIdString);
 
   useEffect(() => {
     if (fplId === 0 || isNaN(fplId)) {

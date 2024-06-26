@@ -9,7 +9,7 @@ import {
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { usePathname } from 'next/navigation';
 interface NavbarProps {
   // handleSubmit: (data: IFormData) => void;
   showIdForm?: boolean;
@@ -20,29 +20,31 @@ const Navbar: React.FC<NavbarProps> = (
     // handleSubmit, showIdForm = true
   }
 ) => {
+  const pathname = usePathname();
+
   const navigation = [
     {
       name: 'Dashboard',
       href: '/dashboard',
-      current: location.pathname === '/dashboard',
+      current: pathname === '/dashboard',
     },
     {
       name: 'History',
       href: '/managerHistory',
-      current: location.pathname === '/managerHistory',
+      current: pathname === '/managerHistory',
     },
     {
       name: 'Compare',
       href: '/managerCompare',
-      current: location.pathname === '/managerCompare',
+      current: pathname === '/managerCompare',
     },
     {
       name: 'About',
       href: '/about',
-      current: location.pathname === '/about',
+      current: pathname === '/about',
     },
   ];
-  const isLandingPage = location.pathname === '/';
+  const isLandingPage = pathname === '/';
   const [isOpen, setIsOpen] = useState(false);
 
   return (
