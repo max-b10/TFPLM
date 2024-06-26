@@ -1,5 +1,5 @@
 import FadeIn from "../animations/FadeIn";
-import Footer from "../components/Footer";
+import Footer from "../components/Layout/Footer";
 import LandingIdForm from "../components/Forms/LandingIdForm";
 
 const Landing = () => {

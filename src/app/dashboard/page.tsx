@@ -1,4 +1,6 @@
 'use client'
+import FadeIn from "../animations/FadeIn";
+import MainContainer from "../components/Layout/MainContainer";
 import { useCheckId } from "../hooks/useCheckId";
 import { IManagerData } from "../types/manager/managerData";
 
@@ -9,10 +11,11 @@ const Dashboard = () => {
     // console.log(data);
     useCheckId();
     return (
-      <div>
-        <h1>Dashboard</h1>
-       
-      </div>
+      <FadeIn>
+            <MainContainer>
+              <h1>Dashboard</h1>
+            </MainContainer>
+      </FadeIn>
     );
   };
   export default Dashboard;
