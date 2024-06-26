@@ -6,22 +6,27 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/app/ui/molecules/Input/Input';
 import { Button } from '@/app/ui/molecules/Button/Button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/app/ui/organisms/Form/Form';
+import { useDispatch } from 'react-redux';
+import { setId } from "@/lib/id/idSlice";
+import { useRouter } from "next/navigation";
 
-interface IdFormProps {
-  onSubmit: (data: IFormData) => void;
-}
+const LandingIdForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
 
-const LandingIdForm = ({ onSubmit }: IdFormProps) => {
   const form = useForm({
     defaultValues: {
       id: '',
     },
   });
 
-  const handleSubmit = form.handleSubmit(onSubmit);
-
   const handleSpanClick = () => {
     form.setValue('id', '115660');
+  };
+ 
+  const handleSubmit = (data:IFormData) => {
+    dispatch(setId(data.id));
+    router.push('/dashboard');
   };
   return (
     <Card className="w-full max-w-sm">
@@ -59,7 +64,7 @@ const LandingIdForm = ({ onSubmit }: IdFormProps) => {
         </div>
       </CardHeader>
       <Form {...form}>
-        <form onSubmit={handleSubmit} className="mr-5 gap-x-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="mr-5 gap-x-4">
           <CardContent className="grid gap-4">
             <FormField
               control={form.control}
