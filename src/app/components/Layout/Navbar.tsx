@@ -33,8 +33,8 @@ const Navbar: React.FC<NavbarProps> = (
     },
     {
       name: 'Compare',
-      href: '/managerComparison',
-      current: location.pathname === '/managerComparison',
+      href: '/managerCompare',
+      current: location.pathname === '/managerCompare',
     },
     {
       name: 'About',
