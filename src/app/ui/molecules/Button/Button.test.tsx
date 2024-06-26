@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Button } from './Button';
 import { Slot } from '@radix-ui/react-slot';
 import '@testing-library/jest-dom';
@@ -14,7 +14,8 @@ describe('Button', () => {
     );
   });
   it('should display the correct content', () => {
-    const { getByText } = render(<Button>Click Me</Button>);
-    expect(getByText('Click Me')).toBeInTheDocument();
+    render(<Button>button</Button>);
+    const buttonElement = screen.getByText(/button/i);
+    expect(buttonElement).toBeInTheDocument();
   });
 });
