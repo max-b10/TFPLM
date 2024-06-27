@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Button } from './Button';
 import { Slot } from '@radix-ui/react-slot';
-import '@testing-library/jest-dom';
 describe('Button', () => {
   it('should render a button', () => {
     render(<Button />);
