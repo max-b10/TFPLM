@@ -4,5 +4,5 @@ export async function GET(request: Request) {
   );
   const generalData = await res.json();
 
-  return Response.json({ generalData });
+  return Response.json(generalData);
 }
