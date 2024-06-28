@@ -3,9 +3,13 @@ import { useCheckId } from '../hooks/useCheckId';
 import DashboardCard from '../components/Cards/DashboardCard';
 import { Activity, ShieldHalf, Tally4, User } from 'lucide-react';
 import { useManagerData } from '../hooks/managerData/useManagerData';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store';
 
 const Dashboard = () => {
-  const { managerData } = useManagerData();
+  const fplIdString = useSelector((state: RootState) => state.id.value);
+  const fplId = Number(fplIdString);
+  const { managerData } = useManagerData(fplId);
   useCheckId();
 
   return (
@@ -15,7 +19,7 @@ const Dashboard = () => {
         title="Manager"
         icon={<User className="h-4 w-4 text-primary" />}
         content={managerData?.player_first_name}
-        footer={'regionName'}
+        footer={managerData?.player_region_name}
       />
       <DashboardCard
         data-cy="dashboard-card-team"
@@ -28,7 +32,7 @@ const Dashboard = () => {
         data-cy="dashboard-card-overall-rank"
         title="Overall Rank"
         icon={<Activity className="h-4 w-4 text-primary" />}
-        content={'managerData?.summary_overall_rank?.toLocaleString()'}
+        content={'177,023'}
         footer={'<>{rankDifferenceElement}</>'}
       />
       <DashboardCard

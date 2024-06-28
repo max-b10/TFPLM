@@ -3,9 +3,10 @@ import { IManagerData } from '@/app/types/manager/managerData';
 import { fetcher } from '@/lib/fetcher';
 import useSWR from 'swr';
 
-const useManagerDataFetch = () =>
-  useSWR<IManagerData>(`${API_ENDPOINTS.manager}`, fetcher);
-export const useManagerData = () => {
-  const { data: managerData } = useManagerDataFetch();
+const useManagerDataFetch = (fplId: number) =>
+  useSWR<IManagerData>(`${API_ENDPOINTS.manager}/${fplId}`, fetcher);
+
+export const useManagerData = (fplId: number) => {
+  const { data: managerData } = useManagerDataFetch(fplId);
   return { managerData };
 };
