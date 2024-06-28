@@ -1,5 +1,6 @@
 import clubMapping from '@/app/constants/clubMapping';
 import { FetchManagerData } from '@/lib/fetchData/fetchManagerData';
+import { FetchSquadPicks } from '@/lib/fetchData/fetchSquadPicks';
 
 export const useManagerData = (fplId: number) => {
   const { data: managerData } = FetchManagerData(fplId);
@@ -23,6 +24,8 @@ export const useManagerData = (fplId: number) => {
     (club) => club.id === favouriteTeamId
   );
   const favouriteClub = favouriteClubObj?.name;
+  const { data: squadPicksData } = FetchSquadPicks(fplId, currentGameweek);
+  const currentSquad = squadPicksData?.picks;
 
   return {
     managerData,
@@ -37,5 +40,6 @@ export const useManagerData = (fplId: number) => {
     eventRank,
     favouriteClub,
     leagues,
+    currentSquad,
   };
 };
