@@ -2,12 +2,21 @@ export async function GET(
   request: Request,
   { params }: { params: { id: number } }
 ) {
-  const paramsId = params.id;
-  console.log('hiya ' + paramsId);
+  try {
+    const fplId = params.id;
+    const url = `https://fantasy.premierleague.com/api/entry/${fplId}/`;
+    const res = await fetch(url);
 
-  const url = `https://fantasy.premierleague.com/api/entry/${paramsId}/`;
-  const res = await fetch(url);
-  const managerData = await res.json();
+    if (!res.ok) {
+      throw new Error(`API call failed with status: ${res.status}`);
+    }
 
-  return Response.json(managerData);
+    const managerData = await res.json();
+
+    return Response.json(managerData);
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+
+    return new Response('Error fetching data', { status: 500 });
+  }
 }

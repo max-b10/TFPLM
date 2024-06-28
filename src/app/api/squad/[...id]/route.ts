@@ -2,14 +2,20 @@ export async function GET(
   request: Request,
   { params }: { params: { id: string[] } }
 ) {
-  const [fplId, gameweek] = params.id.map(Number);
-  // const fplId = params.id;
-  // const gameweek = params.gameweek;
+  try {
+    const [fplId, gameweek] = params.id.map(Number);
+    const url = `https://fantasy.premierleague.com/api/entry/${fplId}/event/${gameweek}/picks/`;
+    const res = await fetch(url);
 
-  const url = `https://fantasy.premierleague.com/api/entry/${fplId}/event/${gameweek}/picks/`;
-  console.log('url here:  ' + url);
-  const res = await fetch(url);
-  const squadPicksData = await res.json();
+    if (!res.ok) {
+      throw new Error(`API call failed with status: ${res.status}`);
+    }
 
-  return Response.json(squadPicksData);
+    const squadPicksData = await res.json();
+
+    return Response.json(squadPicksData);
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    return new Response('Error fetching data', { status: 500 });
+  }
 }
