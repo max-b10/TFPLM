@@ -9,7 +9,8 @@ import { RootState } from '@/lib/store';
 const Dashboard = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
-  const { managerData } = useManagerData(fplId);
+  const { managerData, playerName, regionName, teamName, favouriteClub } =
+    useManagerData(fplId);
   useCheckId();
 
   return (
@@ -18,26 +19,26 @@ const Dashboard = () => {
         data-cy="dashboard-card-current-gameweek"
         title="Manager"
         icon={<User className="h-4 w-4 text-primary" />}
-        content={managerData?.player_first_name}
-        footer={managerData?.player_region_name}
+        content={playerName}
+        footer={regionName}
       />
       <DashboardCard
         data-cy="dashboard-card-team"
         title="Team"
         icon={<ShieldHalf className="h-4 w-4 text-primary" />}
-        content={'teamName'}
-        footer={'favouriteTeam'}
+        content={teamName}
+        footer={favouriteClub}
       />
       <DashboardCard
         data-cy="dashboard-card-overall-rank"
         title="Overall Rank"
         icon={<Activity className="h-4 w-4 text-primary" />}
-        content={'177,023'}
+        content={managerData?.summary_overall_rank?.toLocaleString()}
         footer={'<>{rankDifferenceElement}</>'}
       />
       <DashboardCard
         data-cy="dashboard-card-previous-gameweek"
-        title={'Gameweek ' + 'previousGameWeek?.event'}
+        title={'Gameweek 38'}
         icon={<Tally4 className="h-4 w-4 text-primary" />}
         content={'previousGameWeekScore'}
         footer={'`${previousGameWeek?.rank.toLocaleString()} rank`'}
