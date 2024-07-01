@@ -13,12 +13,12 @@ export const usePlayerData = () => {
     const player = getPlayer(element);
     if (!player) {
       return {
-        name: 'Unknown',
-        club: 'Unknown',
-        price: '0.00',
-        ownership: '0.00',
-        totalPoints: '0.00',
-        image: '0.00',
+        name: 'Loading...',
+        club: '',
+        price: 'Loading...',
+        ownership: 'Loading...',
+        totalPoints: 'Loading...',
+        image: 'Loading...',
       };
     }
 

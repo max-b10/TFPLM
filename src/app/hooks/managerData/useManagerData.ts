@@ -3,11 +3,12 @@ import { FetchManagerData } from '@/lib/fetchData/fetchManagerData';
 import { FetchSquadPicks } from '@/lib/fetchData/fetchSquadPicks';
 
 export const useManagerData = (fplId: number) => {
-  const { data: managerData } = FetchManagerData(fplId);
+  const { data: managerData, isValidating: isLoadingManagerData } =
+    FetchManagerData(fplId);
   // Directly from response:
   const {
-    player_first_name: firstName,
-    player_last_name: lastName,
+    player_first_name: firstName = 'Loading...',
+    player_last_name: lastName = '',
     name: teamName,
     player_region_name: regionName,
     summary_overall_rank: overallRank,
@@ -41,5 +42,6 @@ export const useManagerData = (fplId: number) => {
     favouriteClub,
     leagues,
     currentSquad,
+    isLoadingManagerData,
   };
 };
