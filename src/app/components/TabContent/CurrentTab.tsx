@@ -15,13 +15,13 @@ interface CurrentTabProps {
   playerName: string;
 }
 
-const CurrentContent: React.FC<CurrentTabProps> = ({
+const CurrentTab: React.FC<CurrentTabProps> = ({
   managerGameweekData,
   generalGameweekData,
   playerName,
 }) => (
   <Card className="flex-grow border-primary md:ml-7">
-    <CardHeader className="mb-4 flex rounded-tl-lg rounded-tr-lg bg-muted/50 px-7">
+    <CardHeader className="mb-4 flex rounded-tl-lg rounded-tr-lg bg-muted/50 px-7 py-5">
       <div>
         <CardTitle className="mb-1">Gameweek History</CardTitle>
         <CardDescription>How often do you beat the average?</CardDescription>
@@ -36,4 +36,4 @@ const CurrentContent: React.FC<CurrentTabProps> = ({
     </CardContent>
   </Card>
 );
-export default CurrentContent;
+export default CurrentTab;

@@ -12,12 +12,19 @@ import { RootState } from '@/lib/store';
 import { useManagerHistoryData } from '../hooks/managerHistoryData/useManagerHistoryData';
 import { useGeneralData } from '../hooks/useGeneralData';
 import { useManagerData } from '../hooks/managerData/useManagerData';
+import PastTab from '../components/TabContent/PastTab';
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from '../ui/molecules/Alert/Alert';
+import { AlertCircle } from 'lucide-react';
 
 const ManagerHistory = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
   const { playerName } = useManagerData(fplId);
-  const { gameWeekHistoryData } = useManagerHistoryData(fplId);
+  const { pastSeasonsData, gameWeekHistoryData } = useManagerHistoryData(fplId);
   const { generalGameweekData } = useGeneralData();
 
   useCheckId();
@@ -38,7 +45,19 @@ const ManagerHistory = () => {
           />
         </TabsContent>
         <TabsContent value="past">
-          <h1>past</h1>
+          {pastSeasonsData && pastSeasonsData.length > 0 ? (
+            <PastTab pastSeasonsData={pastSeasonsData} />
+          ) : (
+            <div className="flex justify-center text-primary">
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Oops!</AlertTitle>
+                <AlertDescription>
+                  No past seasons data for this FPL manager, must be rookie!
+                </AlertDescription>
+              </Alert>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
     </>
