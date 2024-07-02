@@ -30,7 +30,7 @@ const TableRowModal: React.FC<TableRowModalProps> = ({
   return (
     <Dialog key={player.element}>
       <DialogTrigger asChild>
-        <TableRow key={player.element} className="cursor-pointer bg-accent">
+        <TableRow key={player.element} className="cursor-pointer bg-card">
           <TableCell>
             <Avatar className="sm:flex">
               <AvatarImage src={playerData.image} alt="Avatar" />
