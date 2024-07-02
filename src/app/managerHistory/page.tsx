@@ -11,12 +11,13 @@ import {
 import { RootState } from '@/lib/store';
 import { useManagerHistoryData } from '../hooks/managerHistoryData/useManagerHistoryData';
 import { useGeneralData } from '../hooks/useGeneralData';
+import { useManagerData } from '../hooks/managerData/useManagerData';
 
 const ManagerHistory = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
-  const { managerHistoryData, isLoadingManagerData, gameWeekHistoryData } =
-    useManagerHistoryData(fplId);
+  const { playerName } = useManagerData(fplId);
+  const { gameWeekHistoryData } = useManagerHistoryData(fplId);
   const { generalGameweekData } = useGeneralData();
 
   useCheckId();
@@ -33,6 +34,7 @@ const ManagerHistory = () => {
           <CurrentTab
             managerGameweekData={gameWeekHistoryData || []}
             generalGameweekData={generalGameweekData || []}
+            playerName={playerName}
           />
         </TabsContent>
         <TabsContent value="past">

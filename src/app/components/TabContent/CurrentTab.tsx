@@ -12,11 +12,13 @@ import GameweekLineChart from '../Charts/GameweekLineChart';
 interface CurrentTabProps {
   managerGameweekData?: ICurrent[];
   generalGameweekData?: IEvent[];
+  playerName: string;
 }
 
 const CurrentContent: React.FC<CurrentTabProps> = ({
   managerGameweekData,
   generalGameweekData,
+  playerName,
 }) => (
   <Card className="flex-grow border-primary md:ml-7">
     <CardHeader className="mb-4 flex rounded-tl-lg rounded-tr-lg bg-muted/50 px-7">
@@ -29,7 +31,7 @@ const CurrentContent: React.FC<CurrentTabProps> = ({
       <GameweekLineChart
         managerGameweekData={managerGameweekData || []}
         generalGameweekData={generalGameweekData || []}
-        playerName={''}
+        playerName={playerName}
       />
     </CardContent>
   </Card>

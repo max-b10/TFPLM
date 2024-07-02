@@ -10,6 +10,7 @@ import {
 import { IEvent } from '@/app/types/general/event';
 import { ICurrent } from '@/app/types/manager/managerHistory';
 import { FC } from 'react';
+import { GameweekTooltip } from '../Tooltips/GameweekTooltip';
 
 interface IGameweekLineChartProps {
   managerGameweekData: ICurrent[];
@@ -63,7 +64,7 @@ const GameweekLineChart: FC<IGameweekLineChartProps> = ({
             tickFormatter={tickFormatter}
           />
           <YAxis dataKey="value" />
-          {/* <Tooltip content={<GameweekTooltip playerName={playerName} />} /> */}
+          <Tooltip content={<GameweekTooltip playerName={playerName} />} />
           <Legend />
           {series.map((s) => (
             <Line
