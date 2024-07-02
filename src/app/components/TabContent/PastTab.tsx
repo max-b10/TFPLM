@@ -5,12 +5,37 @@ import {
   CardHeader,
   CardTitle,
 } from '@/app/ui/organisms/Card/Card';
+import SeasonBarChart from '../Charts/SeasonBarChart';
+import HistoryCard from '../Cards/HistoryCard/HistoryCard';
 
 interface PastTabProps {
-  pastSeasonsData: IPast[];
+  pastSeasonsData?: IPast[];
+  bestRank?: number;
+  worstRank?: number;
+  seasonsPlayed?: number;
+  rankMean?: number;
+  pointsMean?: number;
+  subText?: string;
+  lowestPoints?: number;
+  highestPoints?: number;
+  bestSeasonName?: string;
+  worstSeasonName?: string;
+  totalRankMean?: number;
+  totalPointsMean?: number;
 }
 
-const PastTab: React.FC<PastTabProps> = ({}) => (
+const PastTab: React.FC<PastTabProps> = ({
+  pastSeasonsData,
+  bestRank,
+  worstRank,
+  seasonsPlayed,
+  lowestPoints,
+  highestPoints,
+  bestSeasonName,
+  worstSeasonName,
+  totalRankMean,
+  totalPointsMean,
+}) => (
   <div className="grid h-full gap-4 md:grid-cols-3 md:gap-8">
     <div className="flex h-full flex-grow flex-col gap-4 border-primary md:col-span-2">
       <Card className="h-full border-primary md:ml-7">
@@ -22,11 +47,11 @@ const PastTab: React.FC<PastTabProps> = ({}) => (
           </div>
         </CardHeader>
         <CardContent className="h-[calc(100vh-20rem)] overflow-auto">
-          {/* <SeasonBarChart pastSeasonsData={pastSeasonsData || []} /> */}
+          <SeasonBarChart pastSeasonsData={pastSeasonsData || []} />
         </CardContent>
       </Card>
     </div>
-    {/* <div className="flex h-full flex-grow flex-col gap-4 border-primary md:col-span-1">
+    <div className="flex h-full flex-grow flex-col gap-4 border-primary md:col-span-1">
       <HistoryCard
         rankMean={totalRankMean || 0}
         subText={
@@ -43,7 +68,7 @@ const PastTab: React.FC<PastTabProps> = ({}) => (
         bestSeasonName={bestSeasonName}
         worstSeasonName={worstSeasonName}
       />
-    </div> */}
+    </div>
   </div>
 );
 export default PastTab;

@@ -1,4 +1,8 @@
 import clubMapping from '@/app/constants/clubMapping';
+import {
+  calculateMeanPoints,
+  calculateMeanRank,
+} from '@/app/helpers/calculateMean/calculateMean';
 import { FetchManagerData } from '@/lib/fetchData/fetchManagerData';
 import { FetchSquadPicks } from '@/lib/fetchData/fetchSquadPicks';
 
