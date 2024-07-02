@@ -78,10 +78,10 @@ const Dashboard = () => {
           </div>
           <div className="flex flex-grow flex-col overflow-auto px-4">
             <Card className="flex-grow border-primary">
-              <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50 px-7">
+              <CardHeader className="mb-0 rounded-tl-lg rounded-tr-lg bg-muted/50 px-5 py-5">
                 <CardTitle data-cy="table-title">Current Squad</CardTitle>
               </CardHeader>
-              <CardContent className="h-[calc(100vh-23rem)] overflow-auto">
+              <CardContent className="h-[calc(100vh-23rem)] overflow-auto px-0">
                 <DashboardTable
                   columns={columns}
                   data={playerInformation}
