@@ -34,8 +34,9 @@ const TableRowModal: React.FC<TableRowModalProps> = ({
           <TableCell>
             <Avatar className="sm:flex">
               <AvatarImage src={playerData.image} alt="Avatar" />
-              {/* <AvatarFallback src='fpl.svg' alt="Avatar"/> */}
-              <AvatarFallback></AvatarFallback>
+              <AvatarFallback className="flex justify-center bg-accent text-sm text-primary">
+                ?
+              </AvatarFallback>
             </Avatar>
           </TableCell>
           <TableCell>
@@ -56,6 +57,9 @@ const TableRowModal: React.FC<TableRowModalProps> = ({
         <div className="flex justify-center">
           <Avatar className="h-32 w-32 border border-secondary-foreground sm:flex">
             <AvatarImage src={playerData.image} alt="Avatar" />
+            <AvatarFallback className="flex justify-center bg-accent text-sm text-primary">
+              ?
+            </AvatarFallback>
           </Avatar>
         </div>
         <CardHeader className="items-centerspace-y-0 flex justify-center pb-2">
