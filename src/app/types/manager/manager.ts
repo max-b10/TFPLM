@@ -39,7 +39,7 @@ interface ICupMatch {
   knockout_name: string;
 }
 
-export interface IManagerData {
+export interface IManager {
   id: number;
   joined_time: string;
   started_event: number;

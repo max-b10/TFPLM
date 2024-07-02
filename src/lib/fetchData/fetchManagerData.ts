@@ -1,10 +1,10 @@
 import { API_ENDPOINTS } from '@/app/api/endpoints';
-import { IManagerData } from '@/app/types/manager/managerData';
+import { IManager } from '@/app/types/manager/manager';
 import useSWR from 'swr';
 import { fetcher } from '../fetcher';
 
 export const FetchManagerData = (fplId: number) => {
-  const { data, isValidating } = useSWR<IManagerData>(
+  const { data, isValidating } = useSWR<IManager>(
     `${API_ENDPOINTS.manager}/${fplId}`,
     fetcher
   );
