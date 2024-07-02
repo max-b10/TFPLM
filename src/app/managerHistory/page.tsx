@@ -10,14 +10,16 @@ import {
 } from '../ui/organisms/Tabs/Tabs';
 import { RootState } from '@/lib/store';
 import { useManagerHistoryData } from '../hooks/managerHistoryData/useManagerHistoryData';
+import { useGeneralData } from '../hooks/useGeneralData';
 
 const ManagerHistory = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
-  const { managerHistoryData, isLoadingManagerData } =
+  const { managerHistoryData, isLoadingManagerData, gameWeekHistoryData } =
     useManagerHistoryData(fplId);
+  const { generalGameweekData } = useGeneralData();
+
   useCheckId();
-  console.log(managerHistoryData);
   return (
     <>
       <Tabs className="m:p-0 w-full p-4">
@@ -28,7 +30,10 @@ const ManagerHistory = () => {
           <TabsTrigger value="past">Past</TabsTrigger>
         </TabsList>
         <TabsContent value="current">
-          <CurrentTab />
+          <CurrentTab
+            managerGameweekData={gameWeekHistoryData || []}
+            generalGameweekData={generalGameweekData || []}
+          />
         </TabsContent>
         <TabsContent value="past">
           <h1>past</h1>
