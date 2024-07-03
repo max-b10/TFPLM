@@ -15,14 +15,26 @@ import { RootState } from '@/lib/store';
 import { useManagerData } from '../hooks/managerData/useManagerData';
 import { useManagerHistoryData } from '../hooks/managerHistoryData/useManagerHistoryData';
 import { LoaderIcon } from 'lucide-react';
-import { ILeague } from '../types/league/leagueData';
+import { ILeague, ILeagueData } from '../types/league/leagueData';
+import useSWR from 'swr';
+import { fetcher } from '@/lib/fetcher';
+import { API_ENDPOINTS } from '../api/endpoints';
+import { MembersTable } from '../components/Tables/ManagerCompare/MembersTable/MembersTable';
+import { memberColumns } from '../components/Tables/ManagerCompare/MembersTable/memberColumns';
 
 const ManagerCompare = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
-  const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
   const { isLoadingManagerData, managerClassicLeagues } = useManagerData(fplId);
   const { isLoadingManagerHistoryData } = useManagerHistoryData(fplId);
+  const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
+
+  const { data: selectedLeague } = useSWR<ILeagueData>(
+    selectedLeagueId ? `${API_ENDPOINTS.league}/${selectedLeagueId}` : null,
+    fetcher
+  );
+  const leagueMembers = selectedLeague?.standings.results;
+
   useCheckId();
   return (
     <>
@@ -54,21 +66,18 @@ const ManagerCompare = () => {
               {selectedLeagueId ? (
                 <>
                   <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50">
-                    <CardTitle>
-                      league here
-                      {/* {selectedLeague?.league.name} */}
-                    </CardTitle>
+                    <CardTitle>{selectedLeague?.league.name}</CardTitle>
                     <CardDescription>
                       Select a manager to compare
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="max-h-[50vh] overflow-auto">
-                    {/* <MembersTable
-                columns={memberColumns}
-                data={(leagueMembers || []).map((member) => ({
-                  member,
-                }))}
-              /> */}
+                    <MembersTable
+                      columns={memberColumns}
+                      data={(leagueMembers || []).map((member) => ({
+                        member,
+                      }))}
+                    />
                   </CardContent>
                 </>
               ) : (

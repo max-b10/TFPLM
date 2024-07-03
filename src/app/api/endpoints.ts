@@ -3,4 +3,5 @@ export const API_ENDPOINTS = {
   manager: '/api/manager',
   managerHistory: '/api/managerHistory',
   squadPicks: '/api/squad',
+  league: '/api/league',
 };
