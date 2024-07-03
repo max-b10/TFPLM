@@ -28,7 +28,11 @@ export const useManagerData = (fplId: number) => {
   const { data: squadPicksData } = FetchSquadPicks(fplId, currentGameweek);
   const currentSquad = squadPicksData?.picks;
   const managerClassicLeagues = leagues?.classic.slice(5);
-
+  const favouriteTeamObj = clubMapping.find(
+    (club) => club.id === favouriteTeamId
+  );
+  const favouriteTeam = favouriteTeamObj?.name;
+  const favouriteTeamSrc = favouriteTeamObj?.src;
   return {
     managerData,
     firstName,
@@ -45,5 +49,6 @@ export const useManagerData = (fplId: number) => {
     currentSquad,
     isLoadingManagerData,
     managerClassicLeagues,
+    favouriteTeamSrc,
   };
 };

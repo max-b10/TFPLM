@@ -28,6 +28,9 @@ export const useManagerHistoryData = (fplId: number) => {
     ? Math.max(...pastSeasonsData.map((season) => season.total_points))
     : 0;
   const totalPointsMean = calculateMeanPoints(managerHistoryData?.past);
+  const managerSeasonsPlayed = pastSeasonsData?.length
+    ? Number(pastSeasonsData.length) + 1
+    : 1;
   return {
     managerHistoryData,
     isLoadingManagerHistoryData,
@@ -41,5 +44,7 @@ export const useManagerHistoryData = (fplId: number) => {
     lowestPoints,
     highestPoints,
     totalPointsMean,
+    managerSeasonsPlayed,
+    bestSeason,
   };
 };

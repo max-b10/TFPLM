@@ -12,7 +12,6 @@ export async function GET(
     }
 
     const leagueData = await res.json();
-    console.log(leagueData);
     return Response.json(leagueData);
   } catch (error) {
     console.error('Failed to fetch data:', error);
