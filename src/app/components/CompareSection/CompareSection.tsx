@@ -16,6 +16,7 @@ import ManagerProfileCard from '../Cards/ManagerProfileCard/ManagerProfileCard';
 import BestSeasonCard from '../Cards/BestSeasonCard/BestSeasonCard';
 import { IPast } from '@/app/types/manager/managerHistory';
 import HistoryCarousel from '../HistoryCarousel/HistoryCarousel';
+import PieChart from '../Charts/PieChart';
 
 interface ICompareSectionProps {
   id?: string;
@@ -95,7 +96,7 @@ const CompareSection: React.FC<ICompareSectionProps> = ({
               </div>
             </CardHeader>
             <CardContent className="pb-2">
-              {/* <PieChart totalRankMean={totalRankMean || 0}></PieChart> */}
+              <PieChart totalRankMean={totalRankMean || 0}></PieChart>
             </CardContent>
           </Card>
         </div>
