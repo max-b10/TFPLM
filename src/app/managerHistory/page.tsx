@@ -19,6 +19,7 @@ import {
   AlertTitle,
 } from '../ui/molecules/Alert/Alert';
 import { AlertCircle } from 'lucide-react';
+import { useHybridData } from '../hooks/hybridData/useHybridData';
 
 const ManagerHistory = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
@@ -36,6 +37,7 @@ const ManagerHistory = () => {
     highestPoints,
     totalPointsMean,
   } = useManagerHistoryData(fplId);
+  const { totalRankMean } = useHybridData(fplId);
   const { generalGameweekData } = useGeneralData();
 
   useCheckId();
@@ -58,7 +60,7 @@ const ManagerHistory = () => {
         <TabsContent value="past">
           {pastSeasonsData && pastSeasonsData.length > 0 ? (
             <PastTab
-              // rankMean={totalRankMean || 0}
+              totalRankMean={totalRankMean || 0}
               subText={
                 pastSeasonsData && pastSeasonsData.length > 0
                   ? 'Mean rank'

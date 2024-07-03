@@ -1,15 +1,11 @@
 import clubMapping from '@/app/constants/clubMapping';
-import {
-  calculateMeanPoints,
-  calculateMeanRank,
-} from '@/app/helpers/calculateMean/calculateMean';
+
 import { FetchManagerData } from '@/lib/fetchData/fetchManagerData';
 import { FetchSquadPicks } from '@/lib/fetchData/fetchSquadPicks';
 
 export const useManagerData = (fplId: number) => {
   const { data: managerData, isValidating: isLoadingManagerData } =
     FetchManagerData(fplId);
-  // Directly from response:
   const {
     player_first_name: firstName = 'Loading...',
     player_last_name: lastName = '',

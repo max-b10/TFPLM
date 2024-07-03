@@ -13,7 +13,6 @@ interface PastTabProps {
   bestRank?: number;
   worstRank?: number;
   seasonsPlayed?: number;
-  rankMean?: number;
   pointsMean?: number;
   subText?: string;
   lowestPoints?: number;
