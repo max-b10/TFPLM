@@ -2,8 +2,10 @@ import { calculateMeanPoints } from '@/app/helpers/calculateMean/calculateMean';
 import { FetchManagerHistoryData } from '@/lib/fetchData/fetchManagerHistoryData';
 
 export const useManagerHistoryData = (fplId: number) => {
-  const { data: managerHistoryData, isValidating: isLoadingManagerData } =
-    FetchManagerHistoryData(fplId);
+  const {
+    data: managerHistoryData,
+    isValidating: isLoadingManagerHistoryData,
+  } = FetchManagerHistoryData(fplId);
   const pastSeasonsData = managerHistoryData?.past;
   const gameWeekHistoryData = managerHistoryData?.current;
 
@@ -29,7 +31,7 @@ export const useManagerHistoryData = (fplId: number) => {
   // const totalRankMean = calculateMeanRank(managerHistoryData?.past, overallRank);
   return {
     managerHistoryData,
-    isLoadingManagerData,
+    isLoadingManagerHistoryData,
     gameWeekHistoryData,
     pastSeasonsData,
     bestRank,

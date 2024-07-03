@@ -27,6 +27,7 @@ export const useManagerData = (fplId: number) => {
   const favouriteClub = favouriteClubObj?.name;
   const { data: squadPicksData } = FetchSquadPicks(fplId, currentGameweek);
   const currentSquad = squadPicksData?.picks;
+  const managerClassicLeagues = leagues?.classic.slice(5);
 
   return {
     managerData,
@@ -43,5 +44,6 @@ export const useManagerData = (fplId: number) => {
     leagues,
     currentSquad,
     isLoadingManagerData,
+    managerClassicLeagues,
   };
 };

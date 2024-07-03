@@ -8,57 +8,78 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/organisms/Card/Card';
+import { LeaguesTable } from '../components/Tables/ManagerCompare/LeaguesTable/LeaguesTable';
+import { leagueColumns } from '../components/Tables/ManagerCompare/LeaguesTable/leagueColumns';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/store';
+import { useManagerData } from '../hooks/managerData/useManagerData';
+import { useManagerHistoryData } from '../hooks/managerHistoryData/useManagerHistoryData';
+import { LoaderIcon } from 'lucide-react';
+import { ILeague } from '../types/league/leagueData';
 
 const ManagerCompare = () => {
+  const fplIdString = useSelector((state: RootState) => state.id.value);
+  const fplId = Number(fplIdString);
   const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
-
+  const { isLoadingManagerData, managerClassicLeagues } = useManagerData(fplId);
+  const { isLoadingManagerHistoryData } = useManagerHistoryData(fplId);
   useCheckId();
   return (
     <>
-      <div className="mt-4 grid h-full items-stretch gap-4 px-4 md:mt-0 md:gap-8 md:px-0 lg:grid-cols-3">
-        <Card className="flex min-h-[70vh] flex-grow flex-col border-primary lg:col-span-2">
-          <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50 px-7">
-            <CardTitle>Classic Leagues</CardTitle>
-            <CardDescription>Select a league</CardDescription>
-          </CardHeader>
-          <CardContent className="max-h-[50vh] overflow-auto">
-            {/* <LeaguesTable
-            columns={leagueColumns}
-            data={(managerClassicLeagues || []).map((league) => ({
-              league,
-            }))}
-            onRowClick={(data: { league: ILeague }) =>
-              setSelectedLeagueId(data.league.id)
-            }
-          /> */}
-          </CardContent>
-        </Card>
-        <Card className="min-h-[70vh]flex-grow flex flex-col border-primary lg:col-span-1">
-          {selectedLeagueId ? (
-            <>
-              <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50">
-                <CardTitle>
-                  league here
-                  {/* {selectedLeague?.league.name} */}
-                </CardTitle>
-                <CardDescription>Select a manager to compare</CardDescription>
+      {isLoadingManagerData || isLoadingManagerHistoryData ? (
+        <div className="flex min-h-screen items-center justify-center">
+          <LoaderIcon className="animate-spin" />
+        </div>
+      ) : (
+        <>
+          <div className="mt-4 grid h-full items-stretch gap-4 px-4 md:mt-0 md:gap-8 md:px-0 lg:grid-cols-3">
+            <Card className="flex min-h-[70vh] flex-grow flex-col border-primary lg:col-span-2">
+              <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50 px-7">
+                <CardTitle>Classic Leagues</CardTitle>
+                <CardDescription>Select a league</CardDescription>
               </CardHeader>
               <CardContent className="max-h-[50vh] overflow-auto">
-                {/* <MembersTable
+                <LeaguesTable
+                  columns={leagueColumns}
+                  data={(managerClassicLeagues || []).map((league) => ({
+                    league,
+                  }))}
+                  onRowClick={(data: { league: ILeague }) =>
+                    setSelectedLeagueId(data.league.id)
+                  }
+                />
+              </CardContent>
+            </Card>
+            <Card className="min-h-[70vh]flex-grow flex flex-col border-primary lg:col-span-1">
+              {selectedLeagueId ? (
+                <>
+                  <CardHeader className="mb-4 rounded-tl-lg rounded-tr-lg bg-muted/50">
+                    <CardTitle>
+                      league here
+                      {/* {selectedLeague?.league.name} */}
+                    </CardTitle>
+                    <CardDescription>
+                      Select a manager to compare
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="max-h-[50vh] overflow-auto">
+                    {/* <MembersTable
                 columns={memberColumns}
                 data={(leagueMembers || []).map((member) => ({
                   member,
                 }))}
               /> */}
-              </CardContent>
-            </>
-          ) : (
-            <div className="flex h-full items-center justify-center text-primary">
-              <p>Select a league to see its members</p>
-            </div>
-          )}
-        </Card>
-      </div>
+                  </CardContent>
+                </>
+              ) : (
+                <div className="flex h-full items-center justify-center text-primary">
+                  <p>Select a league to see its members</p>
+                </div>
+              )}
+            </Card>
+          </div>
+        </>
+      )}
     </>
   );
 };
