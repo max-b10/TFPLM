@@ -38,7 +38,7 @@ const PastTab: React.FC<PastTabProps> = ({
   <div className="grid h-full gap-4 md:grid-cols-3 md:gap-8">
     <div className="flex h-full flex-grow flex-col gap-4 border-primary md:col-span-2">
       <Card className="h-full border-primary md:ml-7">
-        <CardHeader className="mb-4 flex flex-row items-start rounded-tl-lg rounded-tr-lg bg-muted/50">
+        <CardHeader className="mb-4 flex flex-row items-start rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
               Rank History

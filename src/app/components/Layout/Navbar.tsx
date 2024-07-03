@@ -11,16 +11,14 @@ import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import IdForm from '../Forms/IdForm';
+import { IFormData } from '@/app/types/FormData';
 interface NavbarProps {
-  // handleSubmit: (data: IFormData) => void;
+  handleSubmit: (data: IFormData) => void;
   showIdForm?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = (
-  {
-    // handleSubmit, showIdForm = true
-  }
-) => {
+const Navbar: React.FC<NavbarProps> = ({ handleSubmit, showIdForm = true }) => {
   const pathname = usePathname();
 
   const navigation = [
@@ -108,9 +106,9 @@ const Navbar: React.FC<NavbarProps> = (
                 </Sheet>
               </div>
             </div>
-            {/* <div className="flex items-center justify-end">
+            <div className="flex items-center justify-end">
               {showIdForm && <IdForm onSubmit={handleSubmit} />}
-            </div> */}
+            </div>
           </header>
         )}
       </div>

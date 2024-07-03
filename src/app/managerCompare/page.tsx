@@ -21,6 +21,10 @@ import { fetcher } from '@/lib/fetcher';
 import { API_ENDPOINTS } from '../api/endpoints';
 import { MembersTable } from '../components/Tables/ManagerCompare/MembersTable/MembersTable';
 import { memberColumns } from '../components/Tables/ManagerCompare/MembersTable/memberColumns';
+import Navbar from '../components/Layout/Navbar';
+import { useNavigationWithId } from '../hooks/useNavigationWithId';
+import FadeIn from '../animations/FadeIn';
+import MainContainer from '../components/Layout/MainContainer';
 
 const ManagerCompare = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
@@ -34,59 +38,66 @@ const ManagerCompare = () => {
     fetcher
   );
   const leagueMembers = selectedLeague?.standings.results;
+  const handleSubmit = useNavigationWithId();
 
   useCheckId();
   return (
     <>
+      <Navbar handleSubmit={handleSubmit}></Navbar>
+
       {isLoadingManagerData || isLoadingManagerHistoryData ? (
         <div className="flex min-h-screen items-center justify-center">
           <LoaderIcon className="animate-spin" />
         </div>
       ) : (
         <>
-          <div className="mt-4 grid h-full items-stretch gap-4 px-4 md:mt-0 md:gap-8 md:px-0 lg:grid-cols-3">
-            <Card className="flex min-h-[70vh] flex-grow flex-col border-primary lg:col-span-2">
-              <CardHeader className="mb-0 rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
-                <CardTitle>Classic Leagues</CardTitle>
-                <CardDescription>Select a league</CardDescription>
-              </CardHeader>
-              <CardContent className="max-h-[50vh] overflow-auto px-0">
-                <LeaguesTable
-                  columns={leagueColumns}
-                  data={(managerClassicLeagues || []).map((league) => ({
-                    league,
-                  }))}
-                  onRowClick={(data: { league: ILeague }) =>
-                    setSelectedLeagueId(data.league.id)
-                  }
-                />
-              </CardContent>
-            </Card>
-            <Card className="min-h-[70vh]flex-grow flex flex-col border-primary lg:col-span-1">
-              {selectedLeagueId ? (
-                <>
+          <FadeIn>
+            <MainContainer>
+              <div className="mt-4 grid h-full items-stretch gap-4 px-4 md:mt-0 md:gap-8 md:px-0 lg:grid-cols-3">
+                <Card className="flex min-h-[70vh] flex-grow flex-col border-primary lg:col-span-2">
                   <CardHeader className="mb-0 rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
-                    <CardTitle>{selectedLeague?.league.name}</CardTitle>
-                    <CardDescription>
-                      Select a manager to compare
-                    </CardDescription>
+                    <CardTitle>Classic Leagues</CardTitle>
+                    <CardDescription>Select a league</CardDescription>
                   </CardHeader>
                   <CardContent className="max-h-[50vh] overflow-auto px-0">
-                    <MembersTable
-                      columns={memberColumns}
-                      data={(leagueMembers || []).map((member) => ({
-                        member,
+                    <LeaguesTable
+                      columns={leagueColumns}
+                      data={(managerClassicLeagues || []).map((league) => ({
+                        league,
                       }))}
+                      onRowClick={(data: { league: ILeague }) =>
+                        setSelectedLeagueId(data.league.id)
+                      }
                     />
                   </CardContent>
-                </>
-              ) : (
-                <div className="flex h-full items-center justify-center text-primary">
-                  <p>Select a league to see its members</p>
-                </div>
-              )}
-            </Card>
-          </div>
+                </Card>
+                <Card className="min-h-[70vh]flex-grow flex flex-col border-primary lg:col-span-1">
+                  {selectedLeagueId ? (
+                    <>
+                      <CardHeader className="mb-0 rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
+                        <CardTitle>{selectedLeague?.league.name}</CardTitle>
+                        <CardDescription>
+                          Select a manager to compare
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="max-h-[50vh] overflow-auto px-0">
+                        <MembersTable
+                          columns={memberColumns}
+                          data={(leagueMembers || []).map((member) => ({
+                            member,
+                          }))}
+                        />
+                      </CardContent>
+                    </>
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-primary">
+                      <p>Select a league to see its members</p>
+                    </div>
+                  )}
+                </Card>
+              </div>
+            </MainContainer>
+          </FadeIn>
         </>
       )}
     </>

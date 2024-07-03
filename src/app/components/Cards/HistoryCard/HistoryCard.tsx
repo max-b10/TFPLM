@@ -40,7 +40,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
   return (
     <>
       <Card className="h-full overflow-scroll border-primary p-0">
-        <CardHeader className="mb-4 flex flex-row items-start rounded-tl-lg rounded-tr-lg bg-muted/50">
+        <CardHeader className="mb-4 flex flex-row items-start rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
           <div className="grid gap-0.5">
             <CardTitle className="group flex items-center gap-2 text-lg">
               History Summary
