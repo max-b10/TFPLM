@@ -1,7 +1,15 @@
 'use client';
 import { useCheckId } from '../hooks/useCheckId';
 import DashboardCard from '../components/Cards/DashboardCard/DashboardCard';
-import { Activity, LoaderIcon, ShieldHalf, Tally4, User } from 'lucide-react';
+import {
+  Activity,
+  ArrowDown,
+  ArrowUp,
+  LoaderIcon,
+  ShieldHalf,
+  Tally4,
+  User,
+} from 'lucide-react';
 import { useManagerData } from '../hooks/managerData/useManagerData';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
@@ -18,6 +26,7 @@ import { useNavigationWithId } from '../hooks/useNavigationWithId';
 import Navbar from '../components/Layout/Navbar';
 import FadeIn from '../animations/FadeIn';
 import MainContainer from '../components/Layout/MainContainer';
+import { usePreviousGameweek } from '../hooks/previousGameweekData/usePreviousGameweek';
 
 const Dashboard = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
@@ -31,7 +40,22 @@ const Dashboard = () => {
     currentSquad,
     isLoadingManagerData,
   } = useManagerData(fplId);
+  const { rankDifference, previousGameWeek, previousGameWeekScore } =
+    usePreviousGameweek(fplId);
   const { getPlayerData } = usePlayerData();
+  const rankDifferenceElement =
+    rankDifference > 0 ? (
+      <div className="flex text-red">
+        <ArrowDown className="mr-0.5 h-4 w-4" />
+        {Math.abs(rankDifference).toLocaleString()}
+        {/* <p className="ml-1 text-xs text-muted-foreground">from last week</p> */}
+      </div>
+    ) : (
+      <div className="mr-0.5 flex text-primary">
+        <ArrowUp className="h-4 w-4" />
+        {Math.abs(rankDifference).toLocaleString()}
+      </div>
+    );
   const handleSubmit = useNavigationWithId();
 
   useCheckId();
@@ -74,14 +98,14 @@ const Dashboard = () => {
                   title="Overall Rank"
                   icon={<Activity className="h-4 w-4 text-primary" />}
                   content={managerData?.summary_overall_rank?.toLocaleString()}
-                  footer={'<>{rankDifferenceElement}</>'}
+                  footer={rankDifferenceElement}
                 />
                 <DashboardCard
                   data-cy="dashboard-card-previous-gameweek"
                   title={'Gameweek 38'}
                   icon={<Tally4 className="h-4 w-4 text-primary" />}
-                  content={'previousGameWeekScore'}
-                  footer={'`${previousGameWeek?.rank.toLocaleString()} rank`'}
+                  content={previousGameWeekScore}
+                  footer={`${previousGameWeek?.rank.toLocaleString()} rank`}
                 />
               </div>
               <div className="flex flex-grow flex-col overflow-auto px-4">
