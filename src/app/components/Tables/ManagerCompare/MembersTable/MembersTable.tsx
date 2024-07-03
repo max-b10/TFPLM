@@ -34,7 +34,7 @@ export function MembersTable<TData extends { member: ITeamEntry }, TValue>({
   return (
     <div className="rounded-md border">
       <Table>
-        <TableHeader className="bg-muted/50">
+        <TableHeader className="bg-card">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow hoverEffect={false} key={headerGroup.id}>
               {headerGroup.headers.map((header, index) => {

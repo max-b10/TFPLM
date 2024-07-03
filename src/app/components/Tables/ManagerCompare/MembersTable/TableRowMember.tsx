@@ -16,9 +16,9 @@ const TableRowMember: React.FC<TableRowMemberProps> = ({ member }) => {
     <TableRow
       onClick={handleRowClick}
       key={member.id}
-      className="cursor-pointer bg-accent"
+      className="cursor-pointer bg-card"
     >
-      <TableCell className="sm:table-cell">
+      <TableCell className="pl-6 sm:table-cell">
         <div className="grid gap-1">
           <p className="text-sm font-medium leading-none">
             {member.entry_name}

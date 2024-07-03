@@ -13,10 +13,10 @@ const TableRowLeague: React.FC<TableRowLeagueProps> = ({
   return (
     <TableRow
       key={league.id}
-      className="cursor-pointer bg-accent"
+      className="cursor-pointer bg-card"
       onClick={() => onRowClick(league)}
     >
-      <TableCell>
+      <TableCell className="pl-6">
         <div className="font-medium">{league.name}</div>
       </TableCell>
       <TableCell>
