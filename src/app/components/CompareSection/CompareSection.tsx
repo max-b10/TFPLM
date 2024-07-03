@@ -15,6 +15,7 @@ import ManagerSummaryCard from '../Cards/ManagerSummaryCard/ManagerSummaryCards'
 import ManagerProfileCard from '../Cards/ManagerProfileCard/ManagerProfileCard';
 import BestSeasonCard from '../Cards/BestSeasonCard/BestSeasonCard';
 import { IPast } from '@/app/types/manager/managerHistory';
+import HistoryCarousel from '../HistoryCarousel/HistoryCarousel';
 
 interface ICompareSectionProps {
   id?: string;
@@ -23,7 +24,7 @@ interface ICompareSectionProps {
   totalRankMean?: number;
   totalPointsMean?: number;
   src?: string;
-  //   slides: IPast[];
+  slides: IPast[];
   bestRank: number;
   isLeftColumn: boolean;
   bestSeason: IPast;
@@ -37,7 +38,7 @@ const CompareSection: React.FC<ICompareSectionProps> = ({
   totalRankMean,
   totalPointsMean,
   src,
-  //   slides,
+  slides,
   bestRank,
   bestSeason,
   isLeftColumn,
@@ -63,7 +64,9 @@ const CompareSection: React.FC<ICompareSectionProps> = ({
           <ManagerProfileCard name={name || ''} src={src} />
         </div>
       </div>
-      <div className="mb-6">{/* <HistoryCarousel slides={slides} /> */}</div>
+      <div className="mb-6">
+        <HistoryCarousel slides={slides} />
+      </div>
       <div className="mb-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div
           className={`col-span-1 sm:col-span-1 ${isLeftColumn ? 'sm:order-1' : 'sm:order-2'}`}

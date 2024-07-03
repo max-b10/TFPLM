@@ -17,8 +17,13 @@ const ManagerCompareDetails = ({ params }: { params: { id: string } }) => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
   const { playerName, favouriteTeamSrc } = useManagerData(fplId);
-  const { managerSeasonsPlayed, totalPointsMean, bestRank, bestSeason } =
-    useManagerHistoryData(fplId);
+  const {
+    managerSeasonsPlayed,
+    pastSeasonsData,
+    totalPointsMean,
+    bestRank,
+    bestSeason,
+  } = useManagerHistoryData(fplId);
   const { totalRankMean } = useHybridData(fplId);
   const handleSubmit = useNavigationWithId();
   useCheckId();
@@ -36,7 +41,7 @@ const ManagerCompareDetails = ({ params }: { params: { id: string } }) => {
               totalRankMean={totalRankMean}
               totalPointsMean={totalPointsMean}
               src={favouriteTeamSrc}
-              // slides={pastSeasonsData || []}
+              slides={pastSeasonsData || []}
               bestRank={bestRank || 0}
               bestSeason={
                 bestSeason || { season_name: '', total_points: 0, rank: 0 }
