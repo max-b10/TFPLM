@@ -1,8 +1,11 @@
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogTitle,
   DialogTrigger,
 } from '@/app/ui/organisms/Dialog/Dialog';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { IPick } from '../../../types/squad/squadPicks';
 
 import { IPlayerData } from '../../../types/player/playerData';
@@ -54,6 +57,10 @@ const TableRowModal: React.FC<TableRowModalProps> = ({
       </DialogTrigger>
 
       <DialogContent className="max-w-[90vw] p-4 sm:max-w-[425px]">
+        <VisuallyHidden.Root>
+          <DialogTitle>Player Details</DialogTitle>
+          <DialogDescription>Modal for player details</DialogDescription>
+        </VisuallyHidden.Root>
         <div className="flex justify-center">
           <Avatar className="h-32 w-32 border border-secondary-foreground sm:flex">
             <AvatarImage src={playerData.image} alt="Avatar" />

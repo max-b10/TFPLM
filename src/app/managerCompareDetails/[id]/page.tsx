@@ -42,7 +42,6 @@ const ManagerCompareDetails = ({ params }: { params: { id: string } }) => {
   } = useEnemyManagerData(Number(enemyManagerId));
   const handleSubmit = useNavigationWithId();
   useCheckId();
-  console.log(enemyTotalRankMean);
   return (
     <>
       <Navbar handleSubmit={handleSubmit}></Navbar>

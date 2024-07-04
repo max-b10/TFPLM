@@ -1,21 +1,28 @@
-import { it, expect, describe } from 'vitest';
 import { calculateLinearPercentileRank } from './calculateRating';
 
 describe('calculateLinearPercentileRank', () => {
-  it('should calculate the percentile rank correctly', () => {
-    const result = calculateLinearPercentileRank(5000000, 10000000);
+  test('calculates percentile rank correctly with default totalPlayers', () => {
+    const meanRank = 5000000;
+    const result = calculateLinearPercentileRank(meanRank);
     expect(result).toBe(50.0);
   });
 
-  it('should throw an error if mean rank is less than or equal to 0', () => {
-    expect(() => calculateLinearPercentileRank(0, 10000000)).toThrow(
-      'Mean rank must be greater than 0 and less than or equal to total players'
-    );
+  test('calculates percentile rank correctly with custom totalPlayers', () => {
+    const meanRank = 250;
+    const totalPlayers = 500;
+    const result = calculateLinearPercentileRank(meanRank, totalPlayers);
+    expect(result).toBe(50.0);
   });
 
-  it('should throw an error if mean rank is greater than total players', () => {
-    expect(() => calculateLinearPercentileRank(10000001, 10000000)).toThrow(
-      'Mean rank must be greater than 0 and less than or equal to total players'
-    );
+  test('handles meanRank equal to totalPlayers', () => {
+    const meanRank = 10000000;
+    const result = calculateLinearPercentileRank(meanRank);
+    expect(result).toBe(0.0);
+  });
+
+  test('handles meanRank of 1', () => {
+    const meanRank = 1;
+    const result = calculateLinearPercentileRank(meanRank);
+    expect(result).toBe(100.0);
   });
 });

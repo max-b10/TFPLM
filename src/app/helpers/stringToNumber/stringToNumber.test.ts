@@ -1,19 +1,27 @@
-import { it, expect, describe } from 'vitest';
 import { stringToNumber } from './stringToNumber';
 
 describe('stringToNumber', () => {
-  it('should convert a string to a number', () => {
-    const result = stringToNumber('1234');
-    expect(result).toBe(1234);
+  test('converts a simple number string to a number', () => {
+    expect(stringToNumber('123')).toBe(123);
   });
 
-  it('should remove commas from the string before converting', () => {
-    const result = stringToNumber('1,234');
-    expect(result).toBe(1234);
+  test('converts a number string with commas to a number', () => {
+    expect(stringToNumber('1,234')).toBe(1234);
   });
 
-  it('should return NaN for non-numeric strings', () => {
-    const result = stringToNumber('abc');
-    expect(result).toBeNaN();
+  test('handles a decimal number string correctly', () => {
+    expect(stringToNumber('1234.56')).toBe(1234.56);
+  });
+
+  test('handles a decimal number string with commas correctly', () => {
+    expect(stringToNumber('1,234.56')).toBe(1234.56);
+  });
+
+  test('returns NaN for non-numeric strings', () => {
+    expect(stringToNumber('abc')).toBeNaN();
+  });
+
+  test('handles an empty string', () => {
+    expect(stringToNumber('')).toBe(0);
   });
 });
