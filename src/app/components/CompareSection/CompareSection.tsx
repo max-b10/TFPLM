@@ -17,6 +17,11 @@ import BestSeasonCard from '../Cards/BestSeasonCard/BestSeasonCard';
 import { IPast } from '@/app/types/manager/managerHistory';
 import HistoryCarousel from '../HistoryCarousel/HistoryCarousel';
 import PieChart from '../Charts/PieChart';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/app/ui/molecules/Popover/Popover';
 
 interface ICompareSectionProps {
   id?: string;
@@ -83,16 +88,16 @@ const CompareSection: React.FC<ICompareSectionProps> = ({
                 <CardTitle className="flex items-center text-lg">
                   Manager Rating
                 </CardTitle>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
+                <Popover>
+                  <PopoverTrigger>
+                    <div>
                       <Info className="h-6 w-6 text-primary" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Calculated using average rank</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <span>Calculated using average rank</span>
+                  </PopoverContent>
+                </Popover>
               </div>
             </CardHeader>
             <CardContent className="pb-2">
