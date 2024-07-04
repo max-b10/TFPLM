@@ -69,7 +69,7 @@ const TableRowModal: React.FC<TableRowModalProps> = ({
             </AvatarFallback>
           </Avatar>
         </div>
-        <CardHeader className="items-centerspace-y-0 flex justify-center pb-2">
+        <CardHeader className="items-centerspace-y-0 flex justify-center bg-card pb-2">
           <CardTitle className="text-center text-2xl font-bold">
             {playerData.name}
           </CardTitle>
