@@ -45,7 +45,7 @@ const PastTab: React.FC<PastTabProps> = ({
             </CardTitle>
           </div>
         </CardHeader>
-        <CardContent className="h-[calc(100vh-20rem)] overflow-auto">
+        <CardContent className="h-[calc(100vh-20rem)] overflow-auto pb-2">
           <SeasonBarChart pastSeasonsData={pastSeasonsData || []} />
         </CardContent>
       </Card>

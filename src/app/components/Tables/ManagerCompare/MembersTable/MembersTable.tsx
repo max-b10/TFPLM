@@ -19,11 +19,13 @@ import TableRowMember from './TableRowMember';
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  fplId: number;
 }
 
 export function MembersTable<TData extends { member: ITeamEntry }, TValue>({
   columns,
   data,
+  fplId,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -60,7 +62,11 @@ export function MembersTable<TData extends { member: ITeamEntry }, TValue>({
             table
               .getRowModel()
               .rows.map((row) => (
-                <TableRowMember key={row.id} member={row.original.member} />
+                <TableRowMember
+                  key={row.id}
+                  member={row.original.member}
+                  fplId={fplId}
+                />
               ))
           ) : (
             <TableRow>

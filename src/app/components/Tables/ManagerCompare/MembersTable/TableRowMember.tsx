@@ -3,14 +3,17 @@ import { ITeamEntry } from '../../../../types/league/leagueData';
 import { useRouter } from 'next/navigation';
 
 interface TableRowMemberProps {
+  fplId: number;
   member: ITeamEntry;
 }
 
-const TableRowMember: React.FC<TableRowMemberProps> = ({ member }) => {
+const TableRowMember: React.FC<TableRowMemberProps> = ({ member, fplId }) => {
   const router = useRouter();
   const managerId = member.entry;
   const handleRowClick = () => {
-    router.push(`/managerCompareDetails/${managerId}`);
+    if (fplId !== managerId) {
+      router.push(`/managerCompareDetails/${managerId}`);
+    } else return;
   };
   return (
     <TableRow

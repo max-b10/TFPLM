@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCheckId } from '../hooks/useCheckId';
 import {
   Card,
@@ -86,6 +86,7 @@ const ManagerCompare = () => {
                           data={(leagueMembers || []).map((member) => ({
                             member,
                           }))}
+                          fplId={fplId}
                         />
                       </CardContent>
                     </>
