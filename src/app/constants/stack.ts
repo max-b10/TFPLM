@@ -7,11 +7,13 @@ import {
   SiSwr,
   SiShadcnui,
   SiFramer,
-  SiExpress,
-  SiVitest,
+  SiNextdotjs,
+  SiJest,
+  SiStorybook,
 } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
+
 export const stack = [
   {
     title: 'React',
@@ -26,14 +28,6 @@ export const stack = [
       'A statically typed superset of JavaScript that compiles to plain JavaScript',
     comments:
       'Static typing, early error detection and wide general adoption across codebases makes TypeScript a no-brainer.',
-  },
-  {
-    title: 'Vite',
-    icon: SiVite,
-    description:
-      'A build tool that aims to provide a faster and leaner development experience for modern web projects',
-    comments:
-      'I opted for Vite because it provides a swift development experience and flexibility. I wanted to try something other than Next.js as well.',
   },
   {
     title: 'Tailwind',
@@ -87,18 +81,26 @@ export const stack = [
     comments: "I don't want gimmicky, I want a smooth and professional UX.",
   },
   {
-    title: 'Express',
-    icon: SiExpress,
-    description: 'Fast, unopinionated, minimalist web framework for Node.js',
+    title: 'Next.js',
+    icon: SiNextdotjs,
+    description: 'A React framework for production',
     comments:
-      'I wanted a server to avoid CORS errors when making requests to external APIs.',
+      'Provides server-side rendering and generating static websites for React based web applications.',
   },
   {
-    title: 'Vitest',
-    icon: SiVitest,
-    description: "A Vite-native testing framework. It's fast!",
+    title: 'Jest',
+    icon: SiJest,
+    description:
+      'A delightful JavaScript Testing Framework with a focus on simplicity.',
     comments:
-      'Due to compatibility issues between Jest and Vite, I opted to use Vitest for unit testing.',
+      'It works out of the box for any React project and has great community support.',
+  },
+  {
+    title: 'Storybook',
+    icon: SiStorybook,
+    description:
+      'An open source tool for developing UI components in isolation for React, Vue, and Angular.',
+    comments: 'It makes building stunning UIs organized and efficient.',
   },
 ];
-export const STACK_LENGTH = 12;
+export const STACK_LENGTH = 13;
