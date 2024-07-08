@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fantasy Premier League Manager Comparator
 
-## Getting Started
+TFPLM is an evolution of the my The FPL Manager web application. It enhances the experience by providing deeper insights into a manager's performance, enabling comparisons with friends or rivals, and integrating a more dynamic and interactive user interface.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is built upon the foundation of the original FPL Manager, retaining the core functionality while introducing new features and improvements. It consists of a Next.js frontend for a more robust and scalable application structure.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Dashboard Image](./public/tfplm.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Frontend Enhancements
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The frontend has been migrated to Next.js from React, offering benefits such as server-side rendering and static site generation. The application architecture has been redesigned to leverage Next.js's app router capabilities, enhancing SEO and performance.
 
-## Learn More
+### Key Technologies:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Framework**: Next.js for improved performance and SEO.
+- **State Management**: Redux Toolkit with redux-persist, maintaining efficient global state management.
+- **HTTP Requests**: Axios for API calls.
+- **UI Components**: Integration of Tailwind CSS for styling, Radix UI for accessibility-first components, and lucide-react for icons.
+- **Data Visualization**: Recharts for rendering responsive and customizable charts and graphs.
+- **Form Handling**: React Hook Form for form management.
+- **Testing**: Transition to Jest for unit testing, alongside Cypress for end-to-end testing.
+- **Linting and Formatting**: ESLint and Prettier continue to ensure code quality and consistency.
