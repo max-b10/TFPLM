@@ -1,7 +1,8 @@
 import { FetchGeneralData } from '@/lib/fetchData/fetchGeneralData';
 
 export const useGeneralData = () => {
-  const { data: generalData } = FetchGeneralData();
+  const { data: generalData, isValidating: isLoadingGeneralData } =
+    FetchGeneralData();
 
   const generalGameweekData = generalData?.events?.map((gameWeek) => ({
     ...gameWeek,
@@ -10,5 +11,6 @@ export const useGeneralData = () => {
   return {
     generalData,
     generalGameweekData,
+    isLoadingGeneralData,
   };
 };

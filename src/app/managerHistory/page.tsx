@@ -18,7 +18,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from '../ui/molecules/Alert/Alert';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, LoaderIcon } from 'lucide-react';
 import { useHybridData } from '../hooks/hybridData/useHybridData';
 import Navbar from '../components/Layout/Navbar';
 import { useNavigationWithId } from '../hooks/useNavigationWithId';
@@ -40,65 +40,73 @@ const ManagerHistory = () => {
     lowestPoints,
     highestPoints,
     totalPointsMean,
+    isLoadingManagerHistoryData,
   } = useManagerHistoryData(fplId);
-  const { totalRankMean } = useHybridData(fplId);
-  const { generalGameweekData } = useGeneralData();
+  const { totalRankMean, isLoadingManagerData } = useHybridData(fplId);
+  const { generalGameweekData, isLoadingGeneralData } = useGeneralData();
   const handleSubmit = useNavigationWithId();
 
   useCheckId();
   return (
     <>
       <Navbar handleSubmit={handleSubmit}></Navbar>
-      <FadeIn>
-        <MainContainer>
-          <Tabs className="w-full p-4 md:p-0">
-            <TabsList className="mb-4 bg-card p-2 md:ml-7">
-              <TabsTrigger autoFocus className="mr-2" value="current">
-                Current
-              </TabsTrigger>
-              <TabsTrigger value="past">Past</TabsTrigger>
-            </TabsList>
-            <TabsContent value="current">
-              <CurrentTab
-                managerGameweekData={gameWeekHistoryData || []}
-                generalGameweekData={generalGameweekData || []}
-                playerName={playerName}
-              />
-            </TabsContent>
-            <TabsContent value="past">
-              {pastSeasonsData && pastSeasonsData.length > 0 ? (
-                <PastTab
-                  totalRankMean={totalRankMean || 0}
-                  subText={
-                    pastSeasonsData && pastSeasonsData.length > 0
-                      ? 'Mean rank'
-                      : 'Current rank'
-                  }
-                  totalPointsMean={totalPointsMean}
-                  pastSeasonsData={pastSeasonsData}
-                  bestRank={bestRank}
-                  worstRank={worstRank}
-                  seasonsPlayed={seasonsPlayed}
-                  lowestPoints={lowestPoints}
-                  highestPoints={highestPoints}
-                  bestSeasonName={bestSeasonName}
-                  worstSeasonName={worstSeasonName}
+      {isLoadingGeneralData || isLoadingManagerHistoryData ? (
+        <div className="flex min-h-screen items-center justify-center">
+          <LoaderIcon className="animate-spin" />
+        </div>
+      ) : (
+        <FadeIn>
+          <MainContainer>
+            <Tabs className="w-full p-4 md:p-0">
+              <TabsList className="mb-4 bg-card p-2 md:ml-7">
+                <TabsTrigger autoFocus className="mr-2" value="current">
+                  Current
+                </TabsTrigger>
+                <TabsTrigger value="past">Past</TabsTrigger>
+              </TabsList>
+              <TabsContent value="current">
+                <CurrentTab
+                  managerGameweekData={gameWeekHistoryData || []}
+                  generalGameweekData={generalGameweekData || []}
+                  playerName={playerName}
                 />
-              ) : (
-                <div className="flex justify-center text-primary">
-                  <Alert variant="destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>Oops!</AlertTitle>
-                    <AlertDescription>
-                      No past seasons data for this FPL manager, must be rookie!
-                    </AlertDescription>
-                  </Alert>
-                </div>
-              )}
-            </TabsContent>
-          </Tabs>
-        </MainContainer>
-      </FadeIn>
+              </TabsContent>
+              <TabsContent value="past">
+                {pastSeasonsData && pastSeasonsData.length > 0 ? (
+                  <PastTab
+                    totalRankMean={totalRankMean || 0}
+                    subText={
+                      pastSeasonsData && pastSeasonsData.length > 0
+                        ? 'Mean rank'
+                        : 'Current rank'
+                    }
+                    totalPointsMean={totalPointsMean}
+                    pastSeasonsData={pastSeasonsData}
+                    bestRank={bestRank}
+                    worstRank={worstRank}
+                    seasonsPlayed={seasonsPlayed}
+                    lowestPoints={lowestPoints}
+                    highestPoints={highestPoints}
+                    bestSeasonName={bestSeasonName}
+                    worstSeasonName={worstSeasonName}
+                  />
+                ) : (
+                  <div className="flex justify-center text-primary">
+                    <Alert variant="destructive">
+                      <AlertCircle className="h-4 w-4" />
+                      <AlertTitle>Oops!</AlertTitle>
+                      <AlertDescription>
+                        No past seasons data for this FPL manager, must be
+                        rookie!
+                      </AlertDescription>
+                    </Alert>
+                  </div>
+                )}
+              </TabsContent>
+            </Tabs>
+          </MainContainer>
+        </FadeIn>
+      )}
     </>
   );
 };

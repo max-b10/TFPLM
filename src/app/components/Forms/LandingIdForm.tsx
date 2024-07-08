@@ -44,9 +44,12 @@ const LandingIdForm = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader className="mb-5 p-6">
-        <CardTitle data-cy="landing-title" className="text-2xl">
-          The FPL Manager
-        </CardTitle>
+        <div className="flex">
+          <CardTitle data-cy="landing-title" className="text-2xl">
+            The FPL Manager
+          </CardTitle>
+        </div>
+
         <CardDescription data-cy="landing-description">
           Enter your Fantasy Premier League id to analyse your manager history
           and more!
