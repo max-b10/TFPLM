@@ -14,7 +14,7 @@
 
 TFPLM (The FPL Manager new and improved) is a web application that gives Fantasy Premier League managers the opportunity to view their historical performance as an FPL manager, and compare against their FPL manager friends (or enemies!).
 
-### Built With
+### Built With:
 
 - ![Next.js][Next.js-logo]
 - ![React][React.js-logo]
@@ -27,6 +27,15 @@ TFPLM (The FPL Manager new and improved) is a web application that gives Fantasy
 - ![React Testing Library][ReactTestingLibrary-logo]
 - ![ESLint][ESLint-logo]
 - ![Prettier][Prettier-logo]
+
+## Getting Started
+
+In the root of the project, you can run:
+
+- `npm run dev`: Runs the app in the development mode
+- `npm run test`: Launches the test runner
+- `npm run cy:open`: Opens the Cypress Test Runner
+- `npm run lint`: Lints the project files
 
 <!-- Reference Links -->
 
