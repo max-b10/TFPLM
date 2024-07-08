@@ -1,24 +1,26 @@
-# Fantasy Premier League Manager Comparator
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/max-b10/TFPLM">
+    <img src="public/fpl.svg" alt="Logo" width="80" height="80">
+  </a>
 
-TFPLM is an evolution of the my The FPL Manager web application. It enhances the experience by providing deeper insights into a manager's performance, enabling comparisons with friends or rivals, and integrating a more dynamic and interactive user interface.
+  <h3 align="center">TFPLM</h3>
 
-## Overview
+<!-- ABOUT THE PROJECT -->
 
-This project is built upon the foundation of the original FPL Manager, retaining the core functionality while introducing new features and improvements. It consists of a Next.js frontend for a more robust and scalable application structure.
+## About The Project
 
-![Dashboard Image](./public/tfplm.png)
+[![TFPLM]['/public/landing.png']](./public/landing.png)
 
-## Frontend Enhancements
+TFPLM (The FPL Manager new and improved) is a web application that gives Fantasy Premier League managers the opportunity to view their historical performance as an FPL manager, and compare against their FPL manager friends (or enemies!).
 
-The frontend has been migrated to Next.js from React, offering benefits such as server-side rendering and static site generation. The application architecture has been redesigned to leverage Next.js's app router capabilities, enhancing SEO and performance.
+### Built With
 
-### Key Technologies:
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- **Framework**: Next.js for improved performance and SEO.
-- **State Management**: Redux Toolkit with redux-persist, maintaining efficient global state management.
-- **HTTP Requests**: Axios for API calls.
-- **UI Components**: Integration of Tailwind CSS for styling, Radix UI for accessibility-first components, and lucide-react for icons.
-- **Data Visualization**: Recharts for rendering responsive and customizable charts and graphs.
-- **Form Handling**: React Hook Form for form management.
-- **Testing**: Transition to Jest for unit testing, alongside Cypress for end-to-end testing.
-- **Linting and Formatting**: ESLint and Prettier continue to ensure code quality and consistency.
+- [![Next.js][Next.js-logo]][Next-url]
+- [![React][React.js-logo]][React-url]
+- [![TailwindCSS][TailwindCSS-logo]][TailwindCSS-url]
+- [![Jest][Jest-logo]][Jest-url]
+- [![Shadcn][Shadcn-logo]][Shadcn-url]
