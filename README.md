@@ -11,16 +11,19 @@
 
 ## About The Project
 
-[![TFPLM]['/public/landing.png']](./public/landing.png)
+(./public/landing.png)
 
 TFPLM (The FPL Manager new and improved) is a web application that gives Fantasy Premier League managers the opportunity to view their historical performance as an FPL manager, and compare against their FPL manager friends (or enemies!).
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 - [![Next.js][Next.js-logo]][Next-url]
 - [![React][React.js-logo]][React-url]
 - [![TailwindCSS][TailwindCSS-logo]][TailwindCSS-url]
 - [![Jest][Jest-logo]][Jest-url]
 - [![Shadcn][Shadcn-logo]][Shadcn-url]
+
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
