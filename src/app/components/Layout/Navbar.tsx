@@ -37,11 +37,11 @@ const Navbar: React.FC<NavbarProps> = ({ handleSubmit, showIdForm = true }) => {
       href: '/managerCompare',
       current: pathname === '/managerCompare',
     },
-    {
-      name: 'About',
-      href: '/about',
-      current: pathname === '/about',
-    },
+    // {
+    //   name: 'About',
+    //   href: '/about',
+    //   current: pathname === '/about',
+    // },
   ];
   const isLandingPage = pathname === '/';
   const [isOpen, setIsOpen] = useState(false);
