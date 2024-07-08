@@ -11,19 +11,25 @@
 
 ## About The Project
 
-(./public/landing.png)
+![TFPLM](public/landing.png)
 
 TFPLM (The FPL Manager new and improved) is a web application that gives Fantasy Premier League managers the opportunity to view their historical performance as an FPL manager, and compare against their FPL manager friends (or enemies!).
 
 ### Built With
 
-- [![Next.js][Next.js-logo]][Next-url]
-- [![React][React.js-logo]][React-url]
+- ![Next.js][Next.js-logo]
+- ![React][React.js-logo]
 - [![TailwindCSS][TailwindCSS-logo]][TailwindCSS-url]
 - [![Jest][Jest-logo]][Jest-url]
 - [![Shadcn][Shadcn-logo]][Shadcn-url]
 
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
+<!-- Reference Links -->
+
+[Next.js-logo]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[React.js-logo]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[TailwindCSS-logo]: URL_to_TailwindCSS_Badge
+[TailwindCSS-url]: https://tailwindcss.com/
+[Jest-logo]: URL_to_Jest_Badge
+[Jest-url]: https://jestjs.io/
+[Shadcn-logo]: URL_to_Shadcn_Badge
+[Shadcn-url]: URL_to_Shadcn
