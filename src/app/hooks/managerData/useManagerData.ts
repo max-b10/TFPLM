@@ -11,15 +11,19 @@ export const useManagerData = (fplId: number) => {
     player_last_name: lastName = '',
     name: teamName,
     player_region_name: regionName,
-    summary_overall_rank: overallRank,
-    current_event: currentGameweek,
+    summary_overall_rank,
+    current_event,
     summary_event_points: eventPoints,
-    summary_event_rank: eventRank,
+    summary_event_rank: eventRank = 'Pending...',
     favourite_team: favouriteTeamId,
     leagues,
   } = managerData || {};
 
   // Variables from data:
+  const currentGameweek = current_event !== null ? current_event : 1;
+  const overallRank =
+    summary_overall_rank !== null ? summary_overall_rank : '-';
+
   const playerName = `${firstName} ${lastName}`;
   const favouriteClubObj = clubMapping.find(
     (club) => club.id === favouriteTeamId

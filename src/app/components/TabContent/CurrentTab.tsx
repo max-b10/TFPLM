@@ -21,13 +21,14 @@ const CurrentTab: React.FC<CurrentTabProps> = ({
   playerName,
 }) => (
   <Card className="flex-grow border-primary md:ml-7">
-    <CardHeader className="mb-4 flex rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
-      <div>
-        <CardTitle className="mb-1">Gameweek History</CardTitle>
-        <CardDescription>How often do you beat the average?</CardDescription>
+    <CardHeader className="mb-4 flex flex-row items-start rounded-tl-lg rounded-tr-lg bg-muted/50 p-5">
+      <div className="grid gap-0.5">
+        <CardTitle className="group flex items-center gap-2 text-lg">
+          Gameweek History
+        </CardTitle>
       </div>
     </CardHeader>
-    <CardContent className="h-[calc(100vh-20rem)] overflow-auto">
+    <CardContent className="h-[calc(100vh-20rem)] overflow-auto pb-2">
       <GameweekLineChart
         managerGameweekData={managerGameweekData || []}
         generalGameweekData={generalGameweekData || []}
