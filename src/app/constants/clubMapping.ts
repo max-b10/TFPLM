@@ -24,41 +24,43 @@ const clubMapping = [
     name: 'Brighton & Hove Albion',
     src: 'https://resources.premierleague.com/premierleague/badges/t36.png',
   },
+
   {
     id: 6,
-    name: 'Burnley',
-    src: 'https://resources.premierleague.com/premierleague/badges/t90.png',
-  },
-  {
-    id: 7,
     name: 'Chelsea',
     src: 'https://resources.premierleague.com/premierleague/badges/t8.png',
   },
   {
-    id: 8,
+    id: 7,
     name: 'Crystal Palace',
     src: 'https://resources.premierleague.com/premierleague/badges/t31.png',
   },
   {
-    id: 9,
+    id: 8,
     name: 'Everton',
     src: 'https://resources.premierleague.com/premierleague/badges/t11.png',
   },
   {
-    id: 10,
+    id: 9,
     name: 'Fulham',
     src: 'https://resources.premierleague.com/premierleague/badges/t54.png',
   },
   {
+    id: 10,
+    name: 'Ipswich Town',
+    src: 'https://resources.premierleague.com/premierleague/badges/t102.png',
+  },
+  {
     id: 11,
-    name: 'Liverpool',
-    src: 'https://resources.premierleague.com/premierleague/badges/t14.png',
+    name: 'Leicester City',
+    src: 'https://resources.premierleague.com/premierleague/badges/t13.png',
   },
   {
     id: 12,
-    name: 'Luton Town',
-    src: 'https://resources.premierleague.com/premierleague/badges/t102.png',
+    name: 'Liverpool',
+    src: 'https://resources.premierleague.com/premierleague/badges/t14.png',
   },
+
   {
     id: 13,
     name: 'Manchester City',
@@ -81,8 +83,8 @@ const clubMapping = [
   },
   {
     id: 17,
-    name: 'Sheffield United',
-    src: 'https://resources.premierleague.com/premierleague/badges/t49.png',
+    name: 'Southampton',
+    src: 'https://resources.premierleague.com/premierleague/badges/t20.png',
   },
   {
     id: 18,
