@@ -35,7 +35,6 @@ export const useManagerData = (fplId: number) => {
   const favouriteTeamObj = clubMapping.find(
     (club) => club.id === favouriteTeamId
   );
-  const favouriteTeam = favouriteTeamObj?.name;
   const favouriteTeamSrc = favouriteTeamObj?.src;
   return {
     managerData,

@@ -42,7 +42,7 @@ const ManagerHistory = () => {
     totalPointsMean,
     isLoadingManagerHistoryData,
   } = useManagerHistoryData(fplId);
-  const { totalRankMean, isLoadingManagerData } = useHybridData(fplId);
+  const { totalRankMean } = useHybridData(fplId);
   const { generalGameweekData, isLoadingGeneralData } = useGeneralData();
   const handleSubmit = useNavigationWithId();
 

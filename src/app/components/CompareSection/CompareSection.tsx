@@ -1,10 +1,4 @@
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/app/ui/molecules/Tooltip/Tooltip';
-import {
   Card,
   CardContent,
   CardHeader,

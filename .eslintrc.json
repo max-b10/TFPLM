@@ -4,5 +4,16 @@
     "plugin:storybook/recommended",
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended"
-  ]
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "eqeqeq": "warn",
+    "curly": "warn",
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "single"],
+    "indent": ["warn", 2],
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn"
+  }
 }

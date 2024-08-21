@@ -32,7 +32,6 @@ const Dashboard = () => {
   const fplIdString = useSelector((state: RootState) => state.id.value);
   const fplId = Number(fplIdString);
   const {
-    managerData,
     playerName,
     regionName,
     teamName,

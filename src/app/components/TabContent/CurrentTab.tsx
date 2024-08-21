@@ -4,7 +4,6 @@ import { ICurrent } from '@/app/types/manager/managerHistory';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/app/ui/organisms/Card/Card';
