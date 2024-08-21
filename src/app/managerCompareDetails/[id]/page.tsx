@@ -1,6 +1,5 @@
 'use client';
 
-import FadeIn from '@/app/animations/FadeIn';
 import CompareSection from '@/app/components/CompareSection/CompareSection';
 import MainContainer from '@/app/components/Layout/MainContainer';
 import Navbar from '@/app/components/Layout/Navbar';

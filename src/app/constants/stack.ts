@@ -1,7 +1,6 @@
 import {
   SiTypescript,
   SiCypress,
-  SiVite,
   SiRedux,
   SiAxios,
   SiSwr,
