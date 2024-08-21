@@ -100,7 +100,6 @@ const HistoryCarousel: React.FC<HistoryCarouselProps> = ({ slides }) => {
     //           ))}
     //         </div>
     //       </div>
-
     //       <div className="mx-6 my-3 flex items-start justify-between">
     //         <div className="grid grid-cols-2 gap-3">
     //           <PrevButton
@@ -112,7 +111,6 @@ const HistoryCarousel: React.FC<HistoryCarouselProps> = ({ slides }) => {
     //             disabled={nextBtnDisabled}
     //           />
     //         </div>
-
     //         <div className="ml-4 flex flex-wrap space-x-2 space-y-2">
     //           <div>
     //             {scrollSnaps.map((_, index) => (

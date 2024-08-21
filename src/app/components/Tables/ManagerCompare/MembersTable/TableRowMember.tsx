@@ -13,7 +13,9 @@ const TableRowMember: React.FC<TableRowMemberProps> = ({ member, fplId }) => {
   const handleRowClick = () => {
     if (fplId !== managerId) {
       router.push(`/managerCompareDetails/${managerId}`);
-    } else return;
+    } else {
+      return;
+    }
   };
   return (
     <TableRow
