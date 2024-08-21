@@ -1,4 +1,4 @@
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const url = 'https://fantasy.premierleague.com/api/bootstrap-static/';
     const res = await fetch(url);
