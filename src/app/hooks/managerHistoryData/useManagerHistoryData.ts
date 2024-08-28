@@ -20,7 +20,9 @@ export const useManagerHistoryData = (fplId: number) => {
   const worstRank = worstSeason?.rank;
   const bestSeasonName = bestSeason?.season_name;
   const worstSeasonName = worstSeason?.season_name;
-  const seasonsPlayed = pastSeasonsData?.length;
+  const seasonsPlayed = pastSeasonsData?.length
+    ? pastSeasonsData.length - 1
+    : 0;
   const lowestPoints = pastSeasonsData
     ? Math.min(...pastSeasonsData.map((season) => season.total_points))
     : 0;
