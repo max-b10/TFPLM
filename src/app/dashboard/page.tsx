@@ -98,12 +98,12 @@ const Dashboard = () => {
                   data-cy="dashboard-card-overall-rank"
                   title="Overall Rank"
                   icon={<Activity className="h-4 w-4 text-primary" />}
-                  content={overallRank}
+                  content={overallRank?.toLocaleString()}
                   footer={rankDifferenceElement}
                 />
                 <DashboardCard
                   data-cy="dashboard-card-previous-gameweek"
-                  title={`Gameweek ${currentGameweek} pts`}
+                  title={`Gameweek ${currentGameweek ? currentGameweek - 1 : 'N/A'} pts`}
                   icon={<Tally4 className="h-4 w-4 text-primary" />}
                   content={previousGameWeekScore}
                   footer={`${previousGameWeek?.rank.toLocaleString()} rank`}
