@@ -30,7 +30,7 @@ export const useEnemyManagerData = (enemyId: number) => {
 
   const enemyName = `${enemyData?.player_first_name} ${enemyData?.player_last_name}`;
   const enemySeasonsPlayed = enemyHistory?.past?.length
-    ? Number(enemyHistory.past.length) + 1
+    ? Number(enemyHistory.past.length)
     : 1;
   const enemyTotalRankMean = calculateMeanRank(
     enemyHistory?.past,
