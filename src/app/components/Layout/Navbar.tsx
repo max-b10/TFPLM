@@ -1,5 +1,4 @@
 'use client';
-// import { IFormData } from "@/app/types/FormData";
 import { Button } from '@/app/ui/molecules/Button/Button';
 import { Separator } from '@/app/ui/molecules/Separator/Separator';
 import {
@@ -37,11 +36,6 @@ const Navbar: React.FC<NavbarProps> = ({ handleSubmit, showIdForm = true }) => {
       href: '/managerCompare',
       current: pathname === '/managerCompare',
     },
-    // {
-    //   name: 'About',
-    //   href: '/about',
-    //   current: pathname === '/about',
-    // },
   ];
   const isLandingPage = pathname === '/';
   const [isOpen, setIsOpen] = useState(false);
