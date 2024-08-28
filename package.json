@@ -28,7 +28,7 @@
     "@tanstack/react-table": "^8.17.3",
     "@types/jest": "^29.5.12",
     "@types/react-redux": "^7.1.33",
-    "axios": "^1.7.2",
+    "axios": "^1.7.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.6",
