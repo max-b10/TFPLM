@@ -29,7 +29,7 @@ export const useManagerHistoryData = (fplId: number) => {
     : 0;
   const totalPointsMean = calculateMeanPoints(managerHistoryData?.past);
   const managerSeasonsPlayed = pastSeasonsData?.length
-    ? Number(pastSeasonsData.length) + 1
+    ? Number(pastSeasonsData.length)
     : 1;
   return {
     managerHistoryData,
