@@ -45,11 +45,6 @@ const GameweekLineChart: FC<IGameweekLineChartProps> = ({
     tickCount += 1;
     return tickCount % 2 === 0 ? tick : '';
   };
-  generalGameweekData.forEach((item) => {
-    console.log(
-      `Gameweek ${item.id}: Average Entry Score = ${item.average_entry_score}`
-    );
-  });
   return (
     <div className="h-full w-full">
       <ResponsiveContainer>
